@@ -123,7 +123,7 @@
 <script>
     //first route
     // 1--- /subscriber
-    const url = 'http://localhost:3000/subscribers';
+    const url = 'https://get-youtube-subscribers-one.vercel.app/subscribers';
 
     let subscriber = fetch(url);
 
@@ -158,7 +158,7 @@
 
     //second route
     // 2--- /subscriber/names
-    const subscriber_names_url = 'http://localhost:3000/subscribers/names';
+    const subscriber_names_url = 'https://get-youtube-subscribers-one.vercel.app/subscribers/names';
 
     let subscriber_names = fetch(subscriber_names_url);
 
@@ -194,7 +194,7 @@
     document.querySelector("#submit").addEventListener("click", () => {
         const inputId = document.querySelector('#inputID').value;
         //console.log(inputId);
-        const subscriber_id_url = `http://localhost:3000/subscribers/${inputId}`;
+        const subscriber_id_url = `https://get-youtube-subscribers-one.vercel.app/subscribers/${inputId}`;
 
         let subscriber_id = fetch(subscriber_id_url);
 
