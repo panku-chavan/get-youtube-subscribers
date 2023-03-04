@@ -1,0 +1,28 @@
+{
+  "name": "get-youtube-subscribers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "createDB": "node src/createDatabase.js",
+    "test": "mocha '__tests__/*.js' --reporter mochawesome --recursive  --timeout 60000 --exit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "4.17.1",
+    "mochawesome": "6.1.1",
+    "mongoose": "^5.10.15",
+    "nodemon": "^2.0.21",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1"
+  }
+}

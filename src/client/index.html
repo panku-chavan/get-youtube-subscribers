@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Get Youtube Subscribers</title>
+</head>
+<style>
+    body {
+        background-color: rgb(225, 218, 231);
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid;
+    }
+
+    .Subscribers_Route {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .div {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .bar {
+        background-color: rgb(113, 89, 136);
+        text-align: center;
+        color: aliceblue;
+    }
+
+    .inputSection {
+        margin-bottom: 30px;
+    }
+</style>
+
+<body>
+    <div class="bar">
+        <h1>Get Youtube Subscriber</h1>
+    </div>
+    <div id="" class="container">
+        <div class="div">
+
+            <h2>Hello</h2>
+            <h3>
+                <h3>This is a API to get Youtube Subscribers.</h3>
+            </h3>
+            <hr>
+            <h4>There are three routes in this API</h4>
+        </div>
+        <ol>
+            <li><b>/subscribers</b></li>
+            <li><b>/subscribers/names</b></li>
+            <li><b>/subscribers/:id</b></li>
+        </ol>
+        <div>
+            <hr>
+            <h3 class="Subscribers_Route">Subscribers Data</h3>
+            <h4>1 - /subscribers</h4><br>
+
+            <!-- section 1 for getting /subscribers route data. -->
+
+            <section>
+                <table id="table" class="table ">
+                    <tr>
+                        <td>
+                            <h6>Name</h6>
+                        </td>
+                        <td>
+                            <h6>Subscribed_Channel</h6>
+                        </td>
+                        <td>
+                            <h6>Subscribed_Date</h6>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <hr><br>
+            <h4>2 - /subscribers/names</h4><br>
+
+            <!-- section 3 for getting /subscribers/names route data. -->
+            <section>
+                <table id="table2" class="table ">
+                    <tr>
+                        <td>
+                            <h6>Name</h6>
+                        </td>
+                        <td>
+                            <h6>Subscribed_Channel</h6>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <hr><br>
+            <h4>3 - /subscribers/:id</h4><br>
+
+            <!-- section 3 for getting /subscribers/:id route data. -->
+            <section>
+                <div class="inputSection">
+                    <input type="text" placeholder="enter id" id="inputID">
+                    <button id="submit">Display</button>
+
+                </div>
+                <table id="table3" class="table ">
+                </table>
+            </section>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    //first route
+    // 1--- /subscriber
+    const url = 'http://localhost:3000/subscribers';
+
+    let subscriber = fetch(url);
+
+    subscriber.then((res) => {
+        return res.json();
+    }).then((data) => {
+        //console.log(data);
+        appendData(data);
+    });
+
+    const table = document.querySelector("#table")
+
+    const appendData = (data) => {
+        data.forEach(element => {
+            //console.log(element);
+            let tr2 = document.createElement("tr");
+            let name = document.createElement('td');
+            name.textContent = element.name;
+
+            let subscribedChannel = document.createElement('td');
+            subscribedChannel.textContent = element.subscribedChannel;
+
+            let subscribedDate = document.createElement("td");
+            subscribedDate.textContent = element.subscribedDate;
+
+            tr2.append(name, subscribedChannel, subscribedDate);
+            table.append(tr2);
+        });
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------------//
+
+    //second route
+    // 2--- /subscriber/names
+    const subscriber_names_url = 'http://localhost:3000/subscribers/names';
+
+    let subscriber_names = fetch(subscriber_names_url);
+
+    subscriber_names.then((res) => {
+        return res.json();
+    }).then((data) => {
+        //console.log(data);
+        appendDataNames(data);
+    });
+
+    const table2 = document.querySelector("#table2")
+
+    const appendDataNames = (data) => {
+        data.forEach(element => {
+            // console.log(element);
+            let tr2 = document.createElement("tr");
+            let name = document.createElement('td');
+            name.textContent = element.name;
+
+            let subscribedChannel = document.createElement('td');
+            subscribedChannel.textContent = element.subscribedChannel;
+
+            tr2.append(name, subscribedChannel);
+            table2.append(tr2);
+        });
+    }
+
+    //----------------------------------------------------------------------------------------------------------------------//
+
+    //third route
+    //3--- subscribers/:id
+
+    document.querySelector("#submit").addEventListener("click", () => {
+        const inputId = document.querySelector('#inputID').value;
+        //console.log(inputId);
+        const subscriber_id_url = `http://localhost:3000/subscribers/${inputId}`;
+
+        let subscriber_id = fetch(subscriber_id_url);
+
+        subscriber_id.then((res) => {
+            return res.json();
+        }).then((data) => {
+            // console.log(data._id)
+
+            if (!data._id) {
+                console.log(data.messege);
+                return errFun(data);
+            } else {
+
+                appendDataID(data);
+            }
+        }).catch((err) => {
+             console.log(err);
+        });
+    })
+
+
+    const tableID = document.querySelector("#table3");
+
+    const appendDataID = (data) => {
+
+        // console.log(data);
+        let tr1 = document.createElement("tr");
+        let tr2 = document.createElement("tr");
+        let td_name = document.createElement("td");
+        td_name.textContent = "Name";
+
+        let td_Channel = document.createElement("td");
+        td_Channel.textContent = "Subscribed Channel";
+
+        let td_date = document.createElement("td");
+        td_date.textContent = "Subscribed Date"
+        tr1.append(td_name, td_Channel, td_date);
+
+        let name = document.createElement('td');
+        name.textContent = data.name;
+
+        let subscribedChannel = document.createElement('td');
+        subscribedChannel.textContent = data.subscribedChannel;
+
+        let subscribedDate = document.createElement("td");
+        subscribedDate.textContent = data.subscribedDate;
+
+        tr2.append(name, subscribedChannel, subscribedDate);
+        tableID.append(tr1, tr2);
+
+    }
+    const errFun = (data) => {
+        const appendMessege = document.querySelector("#table3");
+        const errorMessege = document.createElement("h4");
+        errorMessege.textContent = data.messege;
+        appendMessege.append(errorMessege);
+    }
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
