@@ -42,3 +42,20 @@ e.g ==> http://subscribers/id
 
 if user enter wrong id, messege will be { messege : "Sorry....! You enter wrong ID, No such subscriber found in this ID."}
 
+##
+
+## libraries use in this app
+
+     cors
+    
+     dotenv
+     
+     express
+     
+     mochawesome
+     
+     mongoose
+     
+     nodemon
+     
+     supertest
