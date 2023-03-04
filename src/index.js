@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 //const DATABASE_URL = "mongodb://127.0.0.1:27017/subscribers";
 
 //cluster Uri
-const DATABASE_URL=process.env.DATABASE_URI;
+ const DATABASE_URL=process.env.DATABASE_URI;
 
 mongoose.connect(DATABASE_URL,{ 
     useNewUrlParser: true, 
