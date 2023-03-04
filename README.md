@@ -2,7 +2,19 @@
 
 This is a node,express app to getting details of youtube subscribers.
 
+##
+
 ## There are four API endpoints in this app
+
+1 - "/ "
+
+2 - "/subscribers "
+
+3 - "/subscribers/names "
+
+4 - "/subscribers/:id "
+
+##
 
 ### 1 - "/ " default route.
 
