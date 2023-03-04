@@ -59,3 +59,20 @@ if user enter wrong id, messege will be { messege : "Sorry....! You enter wrong 
      nodemon
      
      supertest
+     
+     nodemon 
+##
+
+## all available sripts
+
+### npm start
+
+it will start the server index.js file
+
+### npm run dev
+
+it will start developent server using nodemon
+
+### npm test 
+
+it will run the subscribers.test.js file to test the all testcases
