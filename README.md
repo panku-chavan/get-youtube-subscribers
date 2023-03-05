@@ -63,7 +63,7 @@ if user enter wrong id, messege will be { messege : "Sorry....! You enter wrong 
      nodemon 
 ##
 
-## all available scripts
+## Available Scripts
 
 ### npm start
 
