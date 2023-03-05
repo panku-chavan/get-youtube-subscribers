@@ -13,18 +13,18 @@ const data = [
       "name": "Lucifer",
       "subscribedChannel": "Sentex"
     },
-    // {
-    //   "name": "Kapil Sharma Show",
-    //   "subscribedChannel": "Soni Liv"
-    // },
-    // {
-    //   "name": "The Night Manager",
-    //   "subscribedChannel": "Hotstar"
-    // },
-    // {
-    //   "name": "Farzi",
-    //   "subscribedChannel": "Amazon Prime"
-    // }
+    {
+      "name": "Kapil Sharma Show",
+      "subscribedChannel": "Soni Liv"
+    },
+    {
+      "name": "The Night Manager",
+      "subscribedChannel": "Hotstar"
+    },
+    {
+      "name": "Farzi",
+      "subscribedChannel": "Amazon Prime"
+    }
   ]
 
 module.exports = data;
