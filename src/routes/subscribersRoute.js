@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Subscribers = require("../models/subscribers");
 
-//subscriber route to get all subscribers in json format
+//'/subscriber ' route to get all subscribers in json format
 router.route("/subscribers").get(async (req, res, next) => {
     try {
         const subscribers = await Subscribers.find({});
@@ -15,7 +15,7 @@ router.route("/subscribers").get(async (req, res, next) => {
 
 });
 
-//subscriber/name route to get subscribers names and channel
+//'/subscriber/name ' route to get subscribers names and channel
 router.route("/subscribers/names").get(async (req, res, next) => {
     try {
         const subscribers = await Subscribers.find({}).select(
@@ -30,7 +30,7 @@ router.route("/subscribers/names").get(async (req, res, next) => {
 });
 
 
-//subscribers/:id route to get subscriber by entering id
+//'/subscribers/:id ' route to get subscriber by entering id
 router.route("/subscribers/:id").get(async (req, res ) => {
     const id = req.params.id;
     await Subscribers.findById(id, (err, data) => {

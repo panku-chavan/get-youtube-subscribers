@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+// creating subscribers schema
 const susbcriberSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -16,4 +18,5 @@ const susbcriberSchema = new mongoose.Schema({
     }
 })
 
+// creating subscribers model
 module.exports = mongoose.model('Subscriber',susbcriberSchema);
